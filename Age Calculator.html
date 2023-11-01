@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>age calculator</title>
+    <style>
+        div {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            font-size: 6vh;
+        }
+
+        p {
+            font-size: 3vh;
+        }
+
+        #age {
+            text-align: center;
+            background-color: blue;
+            color: white;
+            width: 100px;
+            height: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Age Calculator</h2>
+        <p>Enter you date of birth</p>
+        <div class="input-box">
+            <input type="date" name="date" id="dob">;
+        </div>
+        <button onclick="calculateAge()" id="date">Calculate Age</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculateAge() {
+            let birthdate = document.getElementById('dob').value;
+
+            let year=birthdate.substring(0,4);
+            console.log(year);
+            let month=birthdate.substring(5,7);
+            console.log(month);
+            const Newyear = new Date(); 
+            let age=Newyear.getFullYear()-year;
+            let monthage=Newyear.getMonth()-month+1;
+            document.getElementById('result').innerHTML=`your age is ${age}years and ${monthage}old.`;
+        }
+    </script>
+
+</body>
+
+</html>

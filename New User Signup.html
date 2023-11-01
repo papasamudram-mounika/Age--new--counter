@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewUser Signup</title>
+    <style>
+      
+         .user1{
+            text-align: center;
+            font-size: 4vh;
+         } 
+         
+          
+           
+        
+
+        .user2 {
+            
+            border: 1px solid white;
+            margin: 1% 38%;
+            text-align: center;
+            padding: 50px;
+            box-shadow: 2px 2px 2px 2px rgb(94, 90, 90);
+        }
+        input{
+            width: 100%;
+            height: 25px;
+            padding:1px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="user1">
+        <h2>New User Signup</h2>
+    </div>
+    <div class="user2">
+        <input type="text" name="FirstName" id="FName" placeholder="FirstName"><br>
+        <span id="new1"></span><br>
+        <input type="text" name="username" id="uname" placeholder="Username"><br>
+        <span id="new2"></span><br>
+        <input type="text" name="email" id="gemail" placeholder="Emall"><br>
+        <span id="new3"></span><br>
+        <input type="text" name="password" id="pass" placeholder="password"><br>
+        <span id="new4"></span><br>
+        <input type="text" name="telephone" id="tphone" placeholder="telephone"><br>
+        <span id="new5"></span><br>
+        <input type="text" name="panCard" id="paCard" placeholder="panCard"><br>
+        <span id="new6"></span><br>
+    </div>
+    <script>
+
+        let FirstName = document.getElementById('FName');
+        FirstName.addEventListener("keyup", () => {
+            let FirstName = document.getElementById('FName').value;
+            let Firstregex = /^[A-Z][a-z]{4,15}$/;
+            if (Firstregex.test(FirstName)) {
+                document.getElementById('FName').style.border = '10px solid green';
+            } else {
+                document.getElementById('new1').innerHTML = "FirstName should contain 5-15 characters";
+                document.getElementById('FName').style.border = '10px solid red';
+            }
+
+        })
+        let userName = document.getElementById('uname');
+        userName.addEventListener("keyup", () => {
+            let userName = document.getElementById('uname').value;
+            let userregex = /^[A-Z][a-z]{4,12}$/;
+            if (userregex.test(userName)) {
+                document.getElementById('uname').style.border = '10px solid green';
+
+            } else {
+                document.getElementById('new2').innerHTML = "Username must be and contain 5-12 characters";
+                document.getElementById('uname').style.border = '10px solid red';
+            }
+
+
+        })
+        let email = document.getElementById('gemail');
+        email.addEventListener("keyup", () => {
+            email=document.getElementById('gemail').value;
+            let emaregex = /[a-z][0-9]+@[a-z 0-9 .]+$/;
+            if (emaregex.test(email)) {
+                document.getElementById('gemail').style.border = '10px solid green';
+            } else {
+                document.getElementById('new3').innerHTML = "email must be a valid address,eg.ma@mydomain.com";
+                document.getElementById('gemail').style.broder = '10px solid red';
+            }
+
+        })
+        let password = document.getElementById('pass');
+        password.addEventListener("keyup", () => {
+            let password = document.getElementById('pass').value;
+            let passregex = /(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,20}/;
+            if (passregex.test(password)) {
+                document.getElementById('pass').style.border = '10px solid green';
+            } else {
+                document.getElementById('new4').innerHTML = "password must alphanumeric (@,_and -are also allowed)and be 8-20 characters";
+                document.getElementById('pass').style.broder = '10px solide red';
+            }
+
+        })
+        let telephone = document.getElementById('tphone');
+        telephone.addEventListener("keyup", () => {
+            let telephone = document.getElementById('tphone').value;
+            let teleregex = /^[6-9]\d{9}/;
+            if (teleregex.test(telephone)) {
+                document.getElementById('tphone').style.border = '10px solid green';
+            } else {
+                document.getElementById('new5').innerHTML = "Telephone must be a valid indian telephone number(10 digits)";
+                document.getElementById('tphone').style.border = '10px solid red';
+            }
+
+        })
+        let panCard = document.getElementById('paCard');
+        panCard.addEventListener("keyup", () => {
+            let panCard = document.getElementById('paCard').value;
+            let panregex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (panregex.test(panCard)) {
+                document.getElementById('paCard').style.border = '10px solid green';
+            } else {
+                document.getElementById('new6').innerHTML = "Must be a valid panCard Number";
+                document.getElementById('PaCard').style.border = '10px solid red';
+            }
+
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
